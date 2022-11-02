@@ -1,4 +1,4 @@
-book book Checkpoint-4 - Ecommerce book book
+book book Checkpoint-Final - Ecommerce book book
 book book OUR E-COMMERCE book book
 project
 
