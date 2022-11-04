@@ -1,12 +1,25 @@
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import Banner from "./components/Banner";
+import Cart from "./components/Cart";
+import Navbar from "./components/Navbar";
+import NotFound from "./components/NotFound";
+import Products from "./components/Products";
 
-import './App.css';
-
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <h1>Checkpoint 4 </h1>
+    <div>
+      <Navbar />
+      <Banner />
+      <div>
+        <Routes>
+          <Route path="/" element={<Products />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route element={<NotFound />} />
+        </Routes>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
