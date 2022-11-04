@@ -6,18 +6,27 @@ import Navbar from "./components/Navbar";
 import NotFound from "./components/NotFound";
 import Products from "./components/Products";
 
+import { Login } from "./components/Login";
+import { Register } from "./components/Register";
+
+import { AuthProvider } from "./context/AuthContext";
+
 const App = () => {
   return (
     <div>
-      <Navbar />
-      <Banner />
-      <div>
-        <Routes>
-          <Route path="/" element={<Products />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route element={<NotFound />} />
-        </Routes>
-      </div>
+      <AuthProvider>
+        <Navbar />
+        <Banner />
+        <div>
+          <Routes>
+            <Route path="/" element={<Products />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route element={<NotFound />} />
+          </Routes>
+        </div>
+      </AuthProvider>
     </div>
   );
 };

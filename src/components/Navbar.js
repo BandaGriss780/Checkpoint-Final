@@ -1,17 +1,22 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { cartContext } from "../GlobalState/CartContext";
+import Banner from "./Banner";
 
 const Navbar = () => {
   const { qty } = useContext(cartContext);
   return (
     <nav>
+       
       <ul className="right">
         <li>
           <Link to="/">H O M E</Link>
         </li>
+        
       </ul>
-      <ul className="left">
+      <ul className="left"><li>
+          <Link to="/login">Login</Link>
+        </li>
         <li>
           <Link to="/cart">
             <span className="shopping-cart">
