@@ -75,6 +75,7 @@ After the clone, a plain git fetch without arguments will update all the remote-
 This default configuration is achieved by creating references to the remote branch heads under refs/remotes/origin and by initializing remote.origin.url and remote.origin.fetch configuration variables.
 
 Agile software development:
-tada https://library-app.atlassian.net/jira/software/projects/TUK/boards/1
+tada 
+https://trello.com/b/S5TdJi0E/checkpoint-final
 
 Happy Hacking!
