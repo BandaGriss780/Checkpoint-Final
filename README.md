@@ -16,12 +16,12 @@ npx create-react-app my-app cd my-app npm start
 Then open http://localhost:3000/ to see your app. When you’re ready to deploy to production, create a minified bundle with npm run build.
 
 hammerProject functionalities
-Functionality One: 
-Funcionalidad Two: 
-Funcionalidad Three: 
+Functionality One:
+Funcionalidad Two:
+Funcionalidad Three:
 Funcionalidad Three A:
-Funcionalidad Three B: 
-floppy_disk 
+Funcionalidad Three B:
+floppy_disk
 
 Installed and used dependencies
 "@auth0/auth0-react"
@@ -54,14 +54,14 @@ starstarstar
 
 Styles:
 
-
-
 Contributors
 https://github.com/BandaGriss780
 
 https://github.com/escobarGisele
 
 https://github.com/dfma-89
+
+https://github.com/CamiStefano
 
 How to clone our project:
 git-clone - Clone a repository into a new directory
@@ -75,7 +75,7 @@ After the clone, a plain git fetch without arguments will update all the remote-
 This default configuration is achieved by creating references to the remote branch heads under refs/remotes/origin and by initializing remote.origin.url and remote.origin.fetch configuration variables.
 
 Agile software development:
-tada 
+tada
 https://trello.com/b/S5TdJi0E/checkpoint-final
 
 Happy Hacking!
