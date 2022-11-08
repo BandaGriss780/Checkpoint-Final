@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { cartContext } from "../GlobalState/CartContext";
-import Banner from "./Banner";
 
 const Navbar = () => {
   const { qty } = useContext(cartContext);
@@ -10,7 +9,7 @@ const Navbar = () => {
        
       <ul className="right">
         <li>
-          <Link to="/">H O M E</Link>
+          <Link to="/">HOME</Link>
         </li>
         
       </ul>

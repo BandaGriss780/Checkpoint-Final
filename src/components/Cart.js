@@ -48,7 +48,7 @@ const Cart = () => {
             </div>
           ))
         ) : (
-          <span>No Product Found</span>
+          <span>Not products added</span>
         )}
       </div>
       {shoppingCart.length > 0 ? (
