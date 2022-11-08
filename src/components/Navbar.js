@@ -19,7 +19,7 @@ const Navbar = () => {
         <li>
           <Link to="/cart">
             <span className="shopping-cart">
-              <i className="fas fa-cart-plus"></i>
+              <i className="fas fa-cart-plus ps-4 pe-0"></i>
               <span className="cart-count">{qty}</span>
             </span>
           </Link>

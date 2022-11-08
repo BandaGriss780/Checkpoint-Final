@@ -19,6 +19,7 @@ const myProducts = [
   { id: 6, name: "Shoes", price: 150, status: "hot" },
   { id: 7, name: "Notebook", price: 550, status: "new" },
   { id: 8, name: "Tablet", price: 200, status: "new" },
+  { id: 9, name: "Mate", price: 156, status: "hot"},
 ];
 
 export const productsContext = createContext();

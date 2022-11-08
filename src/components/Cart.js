@@ -54,7 +54,7 @@ const Cart = () => {
       {shoppingCart.length > 0 ? (
         <div className="cart-summry">
           <div className="summary">
-            <h3>Cart Summry</h3>
+            <h3>Cart products</h3>
             <div className="pay-total-items">
               <div className="items">Total Items</div>
               <div className="items-count">{qty}</div>
