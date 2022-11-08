@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { Alert } from "./Alert";
-import Button from "react-bootstrap/Button";
+
+
 export function Login() {
   const [user, setUser] = useState({
     email: "",
@@ -48,7 +48,7 @@ export function Login() {
 
   return (
     <div className="feedback-form">
-      {error && <Alert message={error} />}
+      {error}
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <div className="">

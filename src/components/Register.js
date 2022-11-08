@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { Alert } from "./Alert";
+
 export function Register() {
   const { signup } = useAuth();
 
@@ -27,13 +27,13 @@ export function Register() {
   return (
     <div className="feedback-form">
       <h2>Register</h2>
-      {error && <Alert message={error} />}
+      {error}
 
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="email">Email</label>
           <input
-           className="email"
+            className="email"
             type="email"
             onChange={(e) => setUser({ ...user, email: e.target.value })}
             placeholder="email@gmail.com"
@@ -43,7 +43,7 @@ export function Register() {
         <div>
           <label htmlFor="password">Password</label>
           <input
-           className="pass" 
+            className="pass"
             type="password"
             onChange={(e) => setUser({ ...user, password: e.target.value })}
             placeholder="*************"
