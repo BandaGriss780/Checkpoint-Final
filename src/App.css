@@ -3,13 +3,13 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+/*
 :root {
   --mainColor: #f57224;
   --whiteColor: #ffffff;
   --blackColor: #000000;
   --lightDark: #222222;
-}
+} */
 
 body {
   font-family: "Lato", sans-serif;

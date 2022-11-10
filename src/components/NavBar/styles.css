@@ -1,0 +1,8 @@
+.navbar__container {
+  width: 1200px;
+}
+.navbar__logo a {
+  color: var(color-dark-secondary);
+  text-decoration: none !important;
+  /*es solo una prueba, luego voy a borrar el important */
+}

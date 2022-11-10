@@ -1,19 +1,17 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { cartContext } from "../GlobalState/CartContext";
+import { cartContext } from "../../GlobalState/CartContext";
+import "./styles.css";
 
 const Navbar = () => {
   const { qty } = useContext(cartContext);
   return (
-    <nav>
-       
-      <ul className="right">
+    <nav className="navbar__container">
+      <div className="navbar__logo">
+        <Link to="/">HOME</Link>
+      </div>
+      <div className="navbar__menu">
         <li>
-          <Link to="/">HOME</Link>
-        </li>
-        
-      </ul>
-      <ul className="left"><li>
           <Link to="/login">Login</Link>
         </li>
         <li>
@@ -24,7 +22,7 @@ const Navbar = () => {
             </span>
           </Link>
         </li>
-      </ul>
+      </div>
     </nav>
   );
 };
