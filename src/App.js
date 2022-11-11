@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Cart from "./components/Cart";
 import Navbar from "../src/components/NavBar/Navbar";
+import { Home } from "../src/pages/Home";
 import NotFound from "./components/NotFound";
 import Products from "./components/Products";
 
@@ -15,6 +16,7 @@ const App = () => {
     <div>
       <AuthProvider>
         <Navbar />
+        <Home />
         <div>
           <Routes>
             <Route path="/" element={<Products />} />
