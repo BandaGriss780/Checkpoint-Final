@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 
 export function Register() {
   const { signup } = useAuth();
@@ -32,22 +32,12 @@ export function Register() {
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="email">Email</label>
-          <input
-            className="email"
-            type="email"
-            onChange={(e) => setUser({ ...user, email: e.target.value })}
-            placeholder="email@gmail.com"
-          />
+          <input className="email" type="email" onChange={(e) => setUser({ ...user, email: e.target.value })} placeholder="email@gmail.com" />
         </div>
 
         <div>
           <label htmlFor="password">Password</label>
-          <input
-            className="pass"
-            type="password"
-            onChange={(e) => setUser({ ...user, password: e.target.value })}
-            placeholder="*************"
-          />
+          <input className="pass" type="password" onChange={(e) => setUser({ ...user, password: e.target.value })} placeholder="*************" />
         </div>
 
         <button className="button-form">Register</button>

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
-
+import { useAuth } from "../../context/AuthContext";
 
 export function Login() {
   const [user, setUser] = useState({
@@ -23,8 +22,7 @@ export function Login() {
     }
   };
 
-  const handleChange = ({ target: { value, name } }) =>
-    setUser({ ...user, [name]: value });
+  const handleChange = ({ target: { value, name } }) => setUser({ ...user, [name]: value });
 
   const handleGoogleSignin = async () => {
     try {
@@ -56,26 +54,14 @@ export function Login() {
             Email
           </label>
 
-          <input
-            className="email"
-            type="text"
-            name="email"
-            placeholder="email@gmail.com"
-            onChange={handleChange}
-          ></input>
+          <input className="email" type="text" name="email" placeholder="email@gmail.com" onChange={handleChange}></input>
         </div>
         <div>
           <label>Password</label>
-          <input
-            className="pass"
-            type="password"
-            name="password"
-            id="password"
-            onChange={handleChange}
-          />
+          <input className="pass" type="password" name="password" id="password" onChange={handleChange} />
         </div>
 
-        <div >
+        <div>
           <button className="button-form" type="submit">
             Sign In
           </button>
@@ -83,10 +69,7 @@ export function Login() {
         </div>
         <div class="google-btn">
           <div class="google-icon-wrapper">
-            <img
-              class="google-icon"
-              src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-            />
+            <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" />
           </div>
           <p class="btn-text" onClick={handleGoogleSignin}>
             <b>Sign in with google</b>
