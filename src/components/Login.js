@@ -1,106 +1,78 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
+import firebaseApp from "../firebase/firebase";
+import { getFirestore, doc, setDoc } from "firebase/firestore";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 
+const Login = () => {
+  const [isRegistered, setIsRegistered] = useState(false);
 
-export function Login() {
-  const [user, setUser] = useState({
-    email: "",
-    password: "",
-  });
-  const { login, loginWithGoogle, resetPassword } = useAuth();
-  const [error, setError] = useState("");
-  const navigate = useNavigate();
+  const firestore = getFirestore(firebaseApp);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
-    try {
-      await login(user.email, user.password);
-      navigate("/");
-    } catch (error) {
-      setError(error.message);
-    }
+  const auth = getAuth(firebaseApp);
+
+  const registerUser = async (email, password, role) => {
+    const result = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    ).then((userCredential) => {
+      return userCredential;
+    });
+    const userRef = doc(firestore, `users/${result.user.uid}`);
+    setDoc(userRef, { email, role });
   };
 
-  const handleChange = ({ target: { value, name } }) =>
-    setUser({ ...user, [name]: value });
-
-  const handleGoogleSignin = async () => {
-    try {
-      await loginWithGoogle();
-      navigate("/");
-    } catch (error) {
-      setError(error.message);
-    }
-  };
-
-  const handleResetPassword = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (!user.email) return setError("Write an email to reset password");
-    try {
-      await resetPassword(user.email);
-      setError("We sent you an email. Check your inbox");
-    } catch (error) {
-      setError(error.message);
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const role = e.target.role.value;
+    if (isRegistered) {
+      registerUser(email, password, role);
+    } else {
+      signInWithEmailAndPassword(auth, email, password);
     }
   };
 
   return (
     <div className="feedback-form">
-      {error}
-      <h2>Login</h2>
+      <h2>{isRegistered ? "Registrate" : "Iniciá sesión"}</h2>
       <form onSubmit={handleSubmit}>
-        <div className="">
-          <label htmlFor="email" className="">
-            Email
-          </label>
-
-          <input
-            className="email"
-            type="text"
-            name="email"
-            placeholder="email@gmail.com"
-            onChange={handleChange}
-          ></input>
-        </div>
-        <div>
-          <label>Password</label>
+        <label>
+          Email:
+          <input className="email" type="text" placeholder="Email" id="email" />
+        </label>
+        <label>
+          Password:
           <input
             className="pass"
             type="password"
-            name="password"
+            placeholder="Password"
             id="password"
-            onChange={handleChange}
           />
-        </div>
-
-        <div >
-          <button className="button-form" type="submit">
-            Sign In
-          </button>
-          <a onClick={handleResetPassword}>Forgot Password?</a>
-        </div>
-        <div class="google-btn">
-          <div class="google-icon-wrapper">
-            <img
-              class="google-icon"
-              src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-            />
-          </div>
-          <p class="btn-text" onClick={handleGoogleSignin}>
-            <b>Sign in with google</b>
-          </p>
-        </div>
+        </label>
+        <label>
+          Role:
+          <select id="role">
+            <option value="admin">Admin</option>
+            <option value="user">User</option>
+          </select>
+        </label>
+        <button className="button-form" type="submit">
+          {isRegistered ? "Registrame" : "Iniciá mi sesión"}
+        </button>
       </form>
-      {/* <Button variant="info" onClick={handleGoogleSignin}>
-        Google loginssss
-      </Button>
-      <Button variant="danger">Danger</Button>{" "} */}
-      <p>
-        Don't have an account?
-        <Link to="/register">Register</Link>
-      </p>
+      <button onClick={() => setIsRegistered(!isRegistered)}>
+        {isRegistered
+          ? "¿Ya tenés cuenta? Iniciá sesión"
+          : "¿No tenés cuenta? Registrate"}
+      </button>
     </div>
   );
-}
+};
+
+export default Login;

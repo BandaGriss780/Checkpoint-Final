@@ -2,19 +2,28 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { cartContext } from "../GlobalState/CartContext";
 
-const Navbar = () => {
+import firebaseApp from "../firebase/firebase";
+import { getAuth, signOut } from "firebase/auth";
+
+import Admin from "./Admin";
+import User from "./User";
+const Navbar = ({ user }) => {
   const { qty } = useContext(cartContext);
+
+  const auth = getAuth(firebaseApp);
+
   return (
     <nav>
-       
       <ul className="right">
         <li>
           <Link to="/">HOME</Link>
         </li>
-        
       </ul>
-      <ul className="left"><li>
-          <Link to="/login">Login</Link>
+      <ul className="left">
+        <li> <button onClick={() => signOut(auth)}>Log Out</button></li>
+        <li>
+          {user.role === "admin" ? <Admin user={user} /> : <User user={user} />}
+         
         </li>
         <li>
           <Link to="/cart">
