@@ -1,3 +1,5 @@
+/* Desktop styles */
+
 .navbar__container {
   display: flex;
   align-items: center;
@@ -49,4 +51,32 @@ nav ul a {
 .navbar__item__list ul li {
   list-style: none;
   padding: 0rem 1rem;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 968px) {
+  .navbar__container {
+    flex-direction: column;
+  }
+  .navbar__logo {
+    padding: 1rem;
+  }
+}
+
+@media screen and (max-width: 868px) {
+  .navbar__item__list {
+    flex-direction: column;
+    padding: 0.5rem;
+  }
+
+  .navbar__item__list__login {
+    margin: 0rem;
+    padding: 0.5rem 0rem 0rem;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .navbar__item__list {
+    font-size: 0.8rem;
+  }
 }
