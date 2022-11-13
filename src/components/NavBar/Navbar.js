@@ -17,7 +17,7 @@ const Navbar = () => {
         <div className="navbar__item__list">
           <ul className="navbar__item__list__products">
             <li className="navbar__item__list__li">
-              <Link className="" to="/Products">
+              <Link className="" to="/products">
                 All Products
               </Link>
             </li>
@@ -44,8 +44,13 @@ const Navbar = () => {
           </ul>
           <ul className="navbar__item__list__login">
             <li className="navbar__item__list__li">
+              <Link className="" to="/register">
+                Sign Up
+              </Link>
+            </li>
+            <li className="navbar__item__list__li">
               <Link className="" to="/login">
-                Login
+                Log In
               </Link>
             </li>
             <li className="navbar__item__list__cart">

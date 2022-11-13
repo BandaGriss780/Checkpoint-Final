@@ -69,7 +69,7 @@ export function Login() {
         </div>
         <div class="google-btn">
           <div class="google-icon-wrapper">
-            <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" />
+            <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Icon" />
           </div>
           <p class="btn-text" onClick={handleGoogleSignin}>
             <b>Sign in with google</b>
@@ -81,8 +81,8 @@ export function Login() {
       </Button>
       <Button variant="danger">Danger</Button>{" "} */}
       <p>
-        Don't have an account?
-        <Link to="/register">Register</Link>
+        Don't have an account yet?&nbsp;
+        <Link to="/register">Sign Up</Link>
       </p>
     </div>
   );

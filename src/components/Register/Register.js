@@ -43,8 +43,8 @@ export function Register() {
         <button className="button-form">Register</button>
       </form>
       <p>
-        Already have an Account?
-        <Link to="/login">Login</Link>
+        Already have an Account?&nbsp;
+        <Link to="/login">Log in</Link>
       </p>
     </div>
   );
