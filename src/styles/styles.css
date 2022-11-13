@@ -4,3 +4,8 @@
   --color-dark-primary: #1a2e35;
   --color-dark-secondary: #2f5596;
 }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
