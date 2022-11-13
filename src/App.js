@@ -3,9 +3,9 @@ import "./App.css";
 import Cart from "./components/Cart";
 import Navbar from "../src/components/NavBar/Navbar";
 import { Home } from "./pages/Home/Home";
+import Carousel from "../src/components/Carousel";
 import NotFound from "./components/NotFound";
 import Products from "./components/Products";
-
 import { Login } from "../src/components/Login/Login";
 import { Register } from "../src/components/Register/Register";
 
@@ -17,6 +17,7 @@ const App = () => {
     <div>
       <AuthProvider>
         <Navbar />
+        <Carousel />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />

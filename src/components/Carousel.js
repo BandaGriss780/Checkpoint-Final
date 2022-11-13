@@ -1,36 +1,44 @@
 import Carousel from "react-bootstrap/Carousel";
-import bannerOne from "../../assets/images/banner-1.jpg";
-import bannerTwo from "../../assets/images/banner-2.png";
-import bannerThree from "../../assets/images/banner-3.png";
+import React, { useState } from "react";
 
-function CarouselFade() {
+const data = [
+  {
+    image: require("../assets/images/banner-1.jpg"),
+  },
+  {
+    image: require("../assets/images/banner-2.png"),
+  },
+  {
+    image: require("../assets/images/banner-3.png"),
+  },
+  {
+    image: require("../assets/images/banner-4.png"),
+  },
+  {
+    image: require("../assets/images/banner-5.jpg"),
+    caption: "View more",
+  },
+];
+
+function HomeCarousel() {
+  const [index, setIndex] = useState(0);
+  const handleSelect = (selectedIndex, e) => {
+    setIndex(selectedIndex);
+  };
+
   return (
-    <Carousel fade>
-      <Carousel.Item>
-        <img className="d-block w-100" src={bannerOne} alt="First slide" />
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img className="d-block w-100" src={bannerTwo} alt="Second slide" />
-
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img className="d-block w-100" src={bannerThree} alt="Third slide" />
-
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
+    <Carousel activeIndex={index} onSelect={handleSelect}>
+      {data.map((slide, i) => {
+        return (
+          <Carousel.Item>
+            <img className="d-block w-100 img-fluid" src={slide.image} alt="slider products" />
+            <Carousel.Caption>
+              <h3>{slide.caption}</h3>
+            </Carousel.Caption>
+          </Carousel.Item>
+        );
+      })}
     </Carousel>
   );
 }
-
-export default CarouselFade;
+export default HomeCarousel;

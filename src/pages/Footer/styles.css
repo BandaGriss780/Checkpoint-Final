@@ -1,5 +1,5 @@
 .footer__wrapper {
-  background-color: var(--color-light-secondary);
+  background-color: var(--color-light-primary);
   display: flex;
   justify-content: space-between;
   align-items: center;
